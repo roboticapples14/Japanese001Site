@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hirigana Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">
+</head>
+<body onload="next()">
+<div class = "content">
+   <h1>Hiragana  Quiz</h1>
+    <h3 id= "correct">0</h3>
+    <h3 id= "incorrect">0</h3>
+
+   <h2 id="outputHiragana"></h2>
+
+   <input id="input" onkeydown = "if (event.keyCode == 13)
+                        toggleClick()">
+   <br>
+   <button onclick="checkAns()" class="myButton" id="check">Check</button>
+    <button onclick="next()" class="myButton" id="next">Next</button>
+
+    <h3 id= "result"></h3>
+
+</div>
+
+
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

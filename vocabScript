@@ -1,0 +1,117 @@
+
+
+hiraganaVocab = ['ã¯ã„', 'ã­ã“', 'ã›ã‚“ã“ãŠ', 'ã—ã‚…ã£ã—ã‚“', 'ã©ãŠãž ã‚ˆã‚ã—ã', 'ã•ã„', 'ã›ã‚“ã›ãˆ',
+'ããŠã§ã™', 'ããŠã§ã™ã‹', 'ã§ã‚“ã‚ã°ã‚“ã”ãŠ', 'ã¨ã‚‚ã ã¡', 'ãªã¾ãˆ', 'ãªã«', 'ã«ã»ã‚“', 'ã„ã¡', 'ã«',
+'ã•ã‚“', 'ã‚ˆã‚“', 'ã”', 'ã‚ã', 'ãªãª', 'ã¯ã¡', 'ãã‚…ã†', 'ã˜ã‚…ã†', 'ã²ã‚ƒã', 'ã‚ãŸã—', 'ãŠã‹ã‚ã•ã‚“', 'ãŠã¨ãŠã•ã‚“ã‚“',
+'ãŠã­ãˆã•ã‚“', 'ãŠã«ã„ã•ã‚“', 'ã„ã‚‚ãŠã¨', 'ãŠã¨ãŠã¨', 'ãŠã¯ã‚ˆãŠ', 'ã“ã‚“ã«ã¡ã‚',
+'ã“ã‚“ã°ã‚“ã‚', 'ãŠã‚„ã™ã¿', 'ãŠã‹ãˆã‚Š', 'ãŸã ã„ã¾', 'ã„ã£ã¦ãã¾ã™', 'ã„ã£ã¦ã‚‰ã£ã—ã‚ƒã„',
+'ã„ãŸã ãã¾ã™', 'ã”ã¡ãã†ã•ã¾']
+englishVocab = ['yes', 'cat', 'major', 'birthplace', 'nice to meet you', 'years old', 'teacher',
+'It is so/that\'s right', 'Is that right?', 'telephone', 'friend', 'name', 'what', 'Japan', 'one', 'two',
+'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'one hundered', 'I/me', 'mother', 'father',
+'older sister', 'older brother', 'younger sister', 'younger brother', 'hello (morning)', 'hello (afternoon)',
+'good evening', 'good night', 'welcome home', 'I\'m home', 'I\'m leaving (and coming back)', 'Go and come back/see you',
+'I humbly receive (before meal)', 'Thank you for the meal']
+
+var hiragana = ["ã‚","ã„","ã†","ãˆ","ãŠ",
+      "ã‹","ã","ã","ã‘","ã“",
+      "ã•","ã—","ã™","ã›","ã",
+      "ãŸ","ã¡","ã¤","ã¦","ã¨",
+      "ãª","ã«","ã¬","ã­","ã®",
+      "ã¯","ã²","ãµ","ã¸","ã»",
+      "ã¾","ã¿","ã‚€","ã‚","ã‚‚",
+      "ã‚„","ã‚†","ã‚ˆ",
+      "ã‚‰","ã‚Š","ã‚‹","ã‚Œ","ã‚",
+      "ã‚","ã‚’","ã‚“",
+      "ãŒ", "ãŽ", "ã", "ã’", "ã”",
+      "ã–", "ã˜", "ãš", "ãœ", "ãž",
+      "ã ", "ã¢", "ã¥", "ã§", "ã©",
+      "ã°", "ã³", "ã¶", "ã¹", "ã¼",
+      "ã±", "ã´", "ã·", "ãº", "ã½"
+    ];
+
+
+usedArray = [];
+var onCheck = true;
+var printWord = document.getElementById("vocabWord")
+var printTo = document.getElementById("input");
+var output = document.getElementById("result")
+var Ccounter = document.getElementById('correct');
+var Icounter = document.getElementById('incorrect');
+var correct = 0;
+var incorrect = 0;
+
+function inputSymbol(symbol) {
+    console.log(symbol)
+    printTo.value += symbol;
+}
+
+
+
+
+
+
+function toggleClick() {
+    if (onCheck) {
+        document.getElementById("check").click();
+    }
+    else {
+        document.getElementById("next").click();
+    }
+}
+
+function next() {
+    onCheck = true;
+    //reset used array if full
+    if (usedArray.length == hiraganaVocab.length) {
+        usedArray = [];
+    }
+    window.index = Math.floor(Math.random() * englishVocab.length)
+    //check if symbol's been asked already
+    if(usedArray.includes(englishVocab[window.index])){
+        next();
+    }
+    else{
+        printWord.innerHTML = englishVocab[window.index];
+        usedArray.push(englishVocab[window.index])
+    }
+
+    document.getElementById("input").value = "";
+    output.innerHTML = "";
+}
+
+function checkAns() {
+    onCheck = false;
+    var guess = document.getElementById("input").value;
+    if (guess.replace(/\s+/g, '') == hiraganaVocab[window.index]) {
+        output.innerHTML = "You got it right!\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+        correct++;
+        Ccounter.innerHTML = correct;
+    }
+    //check double correct answers
+    //nice to meet you = Hajimemashite OR Doozo yoroshiku
+    else if (englishVocab[window.index] == 'nice to meet you' && guess.replace(/\s+/g, '') == 'ã¯ã˜ã‚ã¾ã—ã¦') {
+        output.innerHTML = "You got it right!\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+    }
+    //what = nani OR nan
+    else if (englishVocab[window.index] == 'what' && guess.replace(/\s+/g, '') == 'ãªã‚“'){
+        output.innerHTML = "You got it right!\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+    }
+    else if (englishVocab[window.index] == 'I/me' && (guess.replace(/\s+/g, '') == 'ã¼ã' || guess.replace(/\s+/g, '') == 'ã‚ãŸã—')){
+        output.innerHTML = "You got it right!\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+    }
+    else if (englishVocab[window.index] == 'good night' && guess.replace(/\s+/g, '') == 'ãŠã‚„ã™ã¿ãªã•ã„'){
+        output.innerHTML = "You got it right!\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+    }
+    else{
+        output.innerHTML = "Not quite...\n" + englishVocab[window.index] + " is " + hiraganaVocab[window.index]
+        + " in hiragana";
+        incorrect++
+        Icounter.innerHTML = incorrect;
+    }
+}

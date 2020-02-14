@@ -1,0 +1,189 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="style.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">   
+    </head>
+    <body onload="next()">
+
+    <div class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hiragana.html">Hiragana</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Vocab #1  Quiz</h1>
+        <h3 id= "correct">0</h3>
+        <h3 id= "incorrect">0</h3>
+    
+        <h2 class="vocabWord" id="vocabWord">vocab word</h2>
+    
+       <input id="input" onkeydown = "if (event.keyCode == 13)
+                        toggleClick()">
+       <br>
+       <button class="myButton" id="check" onclick="checkAns()">Check</button>
+        <button class="myButton" id="next" onclick="next()">Next</button>
+    
+        <br>
+
+        <h3 id= "result"></h3>
+
+        <div class = "keys">
+            <div class="row">
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('あ')"> あ </button>
+                    <button class="keyboard" onclick="inputSymbol('い')"> い </button>
+                    <button class="keyboard" onclick="inputSymbol('う')"> う </button>
+                    <button class="keyboard" onclick="inputSymbol('え')"> え </button>
+                    <button class="keyboard" onclick="inputSymbol('お')"> お </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('か')"> か </button>
+                    <button class="keyboard" onclick="inputSymbol('き')"> き </button>
+                    <button class="keyboard" onclick="inputSymbol('く')"> く </button>
+                    <button class="keyboard" onclick="inputSymbol('け')"> け </button>
+                    <button class="keyboard" onclick="inputSymbol('こ')"> こ </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('さ')"> さ </button>
+                    <button class="keyboard" onclick="inputSymbol('し')"> し </button>
+                    <button class="keyboard" onclick="inputSymbol('す')"> す </button>
+                    <button class="keyboard" onclick="inputSymbol('せ')"> せ </button>
+                    <button class="keyboard" onclick="inputSymbol('そ')"> そ </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('た')"> た </button>
+                    <button class="keyboard" onclick="inputSymbol('ち')"> ち </button>
+                    <button class="keyboard" onclick="inputSymbol('つ')"> つ </button>
+                    <button class="keyboard" onclick="inputSymbol('て')"> て </button>
+                    <button class="keyboard" onclick="inputSymbol('と')"> と </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('な')"> な </button>
+                    <button class="keyboard" onclick="inputSymbol('に')"> に </button>
+                    <button class="keyboard" onclick="inputSymbol('ぬ')"> ぬ </button>
+                    <button class="keyboard" onclick="inputSymbol('ね')"> ね </button>
+                    <button class="keyboard" onclick="inputSymbol('の')"> の </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('は')"> は </button>
+                    <button class="keyboard" onclick="inputSymbol('ひ')"> ひ </button>
+                    <button class="keyboard" onclick="inputSymbol('ふ')"> ふ </button>
+                    <button class="keyboard" onclick="inputSymbol('へ')"> へ </button>
+                    <button class="keyboard" onclick="inputSymbol('ほ')"> ほ </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ま')"> ま </button>
+                    <button class="keyboard" onclick="inputSymbol('み')"> み </button>
+                    <button class="keyboard" onclick="inputSymbol('む')"> む </button>
+                    <button class="keyboard" onclick="inputSymbol('め')"> め </button>
+                    <button class="keyboard" onclick="inputSymbol('も')"> も </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('や')"> や </button>
+                    <button class="keyboard" onclick="inputSymbol('ゆ')"> ゆ </button>
+                    <button class="keyboard" onclick="inputSymbol('よ')"> よ </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ゃ')"> ゃ </button>
+                    <button class="keyboard" onclick="inputSymbol('ゅ')"> ゅ </button>
+                    <button class="keyboard" onclick="inputSymbol('ょ')"> ょ </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ら')"> ら </button>
+                    <button class="keyboard" onclick="inputSymbol('り')"> り </button>
+                    <button class="keyboard" onclick="inputSymbol('る')"> る </button>
+                    <button class="keyboard" onclick="inputSymbol('れ')"> れ </button>
+                    <button class="keyboard" onclick="inputSymbol('ろ')"> ろ </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('わ')"> わ </button>
+                    <button class="keyboard" onclick="inputSymbol('お')"> お </button>
+                    <button class="keyboard" onclick="inputSymbol('ん')"> ん </button>
+                    <button class="keyboard" onclick="inputSymbol('っ')"> っ </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('が')"> が </button>
+                    <button class="keyboard" onclick="inputSymbol('ぎ')"> ぎ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぐ')"> ぐ </button>
+                    <button class="keyboard" onclick="inputSymbol('げ')"> げ </button>
+                    <button class="keyboard" onclick="inputSymbol('ご')"> ご </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ざ')"> ざ </button>
+                    <button class="keyboard" onclick="inputSymbol('じ')"> じ </button>
+                    <button class="keyboard" onclick="inputSymbol('ず')"> ず </button>
+                    <button class="keyboard" onclick="inputSymbol('ぜ')"> ぜ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぞ')"> ぞ </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('だ')"> だ </button>
+                    <button class="keyboard" onclick="inputSymbol('じ')"> じ </button>
+                    <button class="keyboard" onclick="inputSymbol('ず')"> ず </button>
+                    <button class="keyboard" onclick="inputSymbol('で')"> で </button>
+                    <button class="keyboard" onclick="inputSymbol('ど')"> ど </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ば')"> ば </button>
+                    <button class="keyboard" onclick="inputSymbol('び')"> び </button>
+                    <button class="keyboard" onclick="inputSymbol('ぶ')"> ぶ </button>
+                    <button class="keyboard" onclick="inputSymbol('べ')"> べ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぼ')"> ぼ </button>
+                </div>
+                <div class="section">
+                    <button class="keyboard" onclick="inputSymbol('ぱ')"> ぱ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぴ')"> ぴ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぷ')"> ぷ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぺ')"> ぺ </button>
+                    <button class="keyboard" onclick="inputSymbol('ぽ')"> ぽ </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .vocabWord{
+            font-size: 25px;
+            height: 30px;
+            font-family:Trebuchet MS;
+            width: 450px;
+        }
+        .incorrect{
+            width: 30px;
+        }
+        .correct {
+            width: 30px;
+        }
+        .keys {
+            margin-top: 0px;
+            margin-left:50px;
+        }
+        input{
+            width: 400px;
+        }
+        .row {
+            display: inline-block;
+            vertical-align: top;
+            margin: 3px;
+        }
+        .section {
+            margin-right: 20px;
+            display: inline-block;
+        }
+    </style>
+
+    <script src="vocabScript.js"></script>
+        
+    </body>
+    </html>
